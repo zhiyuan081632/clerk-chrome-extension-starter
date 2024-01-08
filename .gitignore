@@ -23,3 +23,13 @@ yalc.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# envivonment
+.env
+.env.local
+
+# build
+build
+
+# .cache
+.cache
