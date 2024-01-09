@@ -8,6 +8,7 @@ import {
   useClerk,
   useUser,
   ClerkProvider,
+  UserButton,
 } from "@clerk/chrome-extension";
 import {
   useNavigate,
@@ -24,14 +25,15 @@ function HelloUser() {
     return null;
   }
 
-  return (
-    <>
-      <p>Hi, {user.primaryEmailAddress?.emailAddress}!</p>
-      <p>
-        <button onClick={() => clerk.signOut()}>Sign out</button>
-      </p>
-    </>
-  );
+  // return (
+  //   <>
+  //     <p>Hi, {user.primaryEmailAddress?.emailAddress}!</p>
+  //     <p>
+  //       <button onClick={() => clerk.signOut()}>Sign out</button>
+  //     </p>
+  //   </>
+  // );
+  return <UserButton />;
 }
 
 const publishableKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY || "";
