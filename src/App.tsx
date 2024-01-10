@@ -27,7 +27,7 @@ function HelloUser() {
 
   // return (
   //   <>
-  //     <p>Hi, {user.primaryEmailAddress?.emailAddress}!</p>
+  //     {/* <p>Hi, {user.primaryEmailAddress?.emailAddress}!</p> */}
   //     <p>
   //       <button onClick={() => clerk.signOut()}>Sign out</button>
   //     </p>
@@ -36,14 +36,6 @@ function HelloUser() {
   return <UserButton />
 }
 
-function WindowSize() {
-  const { isSignedIn, user } = useUser();
-
-  return (
-    <div className={isSignedIn ? 'signed-in' : 'signed-out'}>
-    </div>
-  );
-}
 
 const publishableKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY || "";
 
@@ -54,7 +46,7 @@ function ClerkProviderWithRoutes() {
     <ClerkProvider publishableKey={publishableKey} navigate={(to) => navigate(to)}>
       <div className="App">
         <header className="App-header">
-          <p>Welcome to Clerk Chrome Extension Starter!</p>
+          <p>Welcome to SavePage Extension!</p>
           {/* <a
             className="App-link"
             href="https://clerk.dev/docs"
@@ -64,7 +56,7 @@ function ClerkProviderWithRoutes() {
             Learn more about Clerk
           </a> */}
         </header>
-        <WindowSize />
+        {/* <WindowSize /> */}
         <main className="App-main">
           <Routes>
             <Route
@@ -74,7 +66,9 @@ function ClerkProviderWithRoutes() {
             <Route path='/' element={
               <>
                 <SignedIn>
-                  <HelloUser />
+                  <div className="hello-user-container">
+                    <HelloUser />
+                  </div>
                 </SignedIn>
                 <SignedOut>
                   <SignIn afterSignInUrl="/" signUpUrl="/sign-up" />
