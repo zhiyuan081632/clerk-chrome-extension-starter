@@ -40,7 +40,7 @@ function HelloUser() {
 
 const publishableKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY || "";
 
-function ClerkProviderWithRoutes() {
+function ClerkProviderforOptions() {
   const navigate = useNavigate();
 
   return (
@@ -48,14 +48,14 @@ function ClerkProviderWithRoutes() {
       <div className="App">
         <header className="App-header">
           <div>Options of SavePage</div>
-          <a
+          {/* <a
             className="App-link"
             href="https://clerk.dev/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
             Learn more about Clerk
-          </a>
+          </a> */}
         </header>
         <main className="App-main">
           <Routes>
@@ -69,7 +69,7 @@ function ClerkProviderWithRoutes() {
                   <HelloUser />
                 </SignedIn>
                 <SignedOut>
-                  <SignIn afterSignInUrl="/" signUpUrl="/sign-up" />
+                  <SignIn afterSignInUrl="/options.html" signUpUrl="/sign-up" />
                 </SignedOut>
               </>
             } />
@@ -83,7 +83,7 @@ function ClerkProviderWithRoutes() {
 function OptionsPage() {
   return (
     <MemoryRouter>
-      <ClerkProviderWithRoutes />
+      <ClerkProviderforOptions />
     </MemoryRouter>
   );
 }

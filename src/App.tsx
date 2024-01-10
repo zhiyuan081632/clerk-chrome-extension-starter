@@ -33,7 +33,16 @@ function HelloUser() {
   //     </p>
   //   </>
   // );
-  return <UserButton />;
+  return <UserButton />
+}
+
+function WindowSize() {
+  const { isSignedIn, user } = useUser();
+
+  return (
+    <div className={isSignedIn ? 'signed-in' : 'signed-out'}>
+    </div>
+  );
 }
 
 const publishableKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY || "";
@@ -46,15 +55,16 @@ function ClerkProviderWithRoutes() {
       <div className="App">
         <header className="App-header">
           <p>Welcome to Clerk Chrome Extension Starter!</p>
-          <a
+          {/* <a
             className="App-link"
             href="https://clerk.dev/docs"
             target="_blank"
             rel="noopener noreferrer"
           >
             Learn more about Clerk
-          </a>
+          </a> */}
         </header>
+        <WindowSize />
         <main className="App-main">
           <Routes>
             <Route

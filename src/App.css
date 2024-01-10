@@ -21,3 +21,13 @@
   font-size: 1rem;
   color: #6C47FF;
 }
+
+.signed-in {
+  width: 300px;
+  height: 60px;
+}
+
+.signed-out {
+  width: 800px;
+  height: 600px;
+}
